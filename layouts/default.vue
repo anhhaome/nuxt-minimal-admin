@@ -88,7 +88,7 @@ $top-bar-padding: 10px;
   .m-topbar {
     width: 100%;
     height: $top-bar-height;
-    padding: $top-bar-padding math.div($top-bar-padding, 2);
+    padding: $top-bar-padding ($top-bar-padding / 2);
     
     border-bottom: 1px solid $border;
     display: flex;
@@ -98,7 +98,7 @@ $top-bar-padding: 10px;
       height: $control-size;
       line-height: $control-size * 1.05;
       padding: 0;
-      margin: 0 math.div($top-bar-padding, 2);
+      margin: 0 ($top-bar-padding / 2);
       font-size: inherit;
 
       display: block;
@@ -106,7 +106,7 @@ $top-bar-padding: 10px;
       border: none;
       text-align: center;
       cursor: pointer;
-      border-radius: math.div($top-bar-padding, 3);
+      border-radius: $top-bar-padding / 3;
       font-family: inherit;
       text-decoration: none;
 
@@ -119,7 +119,7 @@ $top-bar-padding: 10px;
 
     .m-input {
       padding: 0;
-      margin: 0 math.div($top-bar-padding, 2);
+      margin: 0 ($top-bar-padding / 2);
 
       min-width: 10px;
       height: $control-size;
@@ -129,8 +129,8 @@ $top-bar-padding: 10px;
       display: block;
       background-color: $primary-bg;
       border: none;
-      padding: 0 math.div($control-size, 2);
-      border-radius: math.div($control-size, 2);
+      padding: 0 ($control-size / 2);
+      border-radius: $control-size / 2;
       font-family: inherit;
 
       transition: all .1s;
@@ -140,7 +140,7 @@ $top-bar-padding: 10px;
     .m-input:active,
     .m-input:focus {
       outline: none;
-      background-color: color.adjust($primary-bg, $lightness: -5%);
+      background-color: darken($primary-bg, .1);
     }
 
     .fill {
@@ -158,19 +158,19 @@ $top-bar-padding: 10px;
   .m-menubar {
     left: 0;
     width: $top-bar-height;
-    padding: 0 math.div($top-bar-padding, 2);
+    padding: 0 ($top-bar-padding / 2);
 
     border-right: 1px solid $border;
 
     .m-button {
-      padding: math.div($top-bar-padding, 2);
-      margin: math.div($top-bar-padding, 2) 0;
+      padding: $top-bar-padding / 2;
+      margin: ($top-bar-padding / 2) 0;
 
       width: 100%;
       display: block;
       text-decoration: none;
       color: $primary;
-      border-radius: math.div($control-size, 3);
+      border-radius: $control-size / 3;
 
       white-space: nowrap;
       overflow: hidden;
