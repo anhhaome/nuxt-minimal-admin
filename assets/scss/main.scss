@@ -9,10 +9,29 @@ $font-family-base: 'Quicksand', Roboto;
 $headings-font-family: 'Josefin Sans', Roboto;
 $headings-font-weight: 600;
 
+:root {
+  --primary: #000;
+  --secondary: #646464;
+
+  --primary-bg: #f0f0f0;
+  --secondary-bg: #fff;
+  --border: #e0e0e0;
+}
+
+[theme="dark"] {
+  --primary: #fff;
+  --secondary: #e0e0e0;
+
+  --primary-bg: #212121;
+  --secondary-bg: #424242;
+  --border: #212121;
+}
+
 @import 'bootstrap/scss/bootstrap.scss';
 @import 'bootstrap-vue/src/index.scss';
 
 body {
-  background-color: $primary-bg;
+  background-color: var(--primary-bg);
+  color: var(--primary);
   overflow-y: scroll;
 }

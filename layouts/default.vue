@@ -38,12 +38,25 @@
         </span>
         <span class="m-menu-label">Cursor</span>
       </nuxt-link>
+
+      <div class="divider"></div>
+
+      <nuxt-link to="/" class="m-button">
+        <span class="icon-wrapper">
+          <i class="icon icon-logout"></i>
+        </span>
+        <span class="m-menu-label">Logout</span>
+      </nuxt-link>
     </div>
     <!-- END MENUBAR -->
 
     <!-- SIDEBAR -->
     <div class="m-sidebar">
-
+      <div class="m-theme-switch m-widget">
+        <label for="">Theme</label>
+        <button class="m-button dark" @click="setTheme('dark')" :active="currentTheme === 'dark'">Dark</button>
+        <button class="m-button light" @click="setTheme('light')" :active="currentTheme === 'light'">Light</button>
+      </div>
     </div>
     <!-- END SIDEBAR -->
 
@@ -57,15 +70,31 @@
 
 <script>
 export default {
+  data(){
+    return {
+      currentTheme: null
+    }
+  },
 
+  methods: {
+    setTheme(type){
+      this.currentTheme = type;
+      localStorage.setItem('theme', this.currentTheme)
+      document.body.setAttribute('theme', this.currentTheme);
+    }
+  },
+
+  mounted(){
+    this.$nextTick(() => {
+      this.setTheme(localStorage.getItem('theme') || 'light');
+    });
+  },
 }
 </script>
 
 <style lang="scss" scoped>
 @use "sass:math";
 @use "sass:color";
-
-@import '@/assets/scss/colors.scss';
 
 $top-bar-height: 50px;
 $top-bar-padding: 10px;
@@ -80,7 +109,7 @@ $top-bar-padding: 10px;
   .m-topbar,
   .m-menubar,
   .m-sidebar {
-    background-color: $secondary-bg;
+    background-color: var(--secondary-bg);
     position: fixed;
     z-index: 100;
   }
@@ -90,7 +119,7 @@ $top-bar-padding: 10px;
     height: $top-bar-height;
     padding: $top-bar-padding ($top-bar-padding / 2);
     
-    border-bottom: 1px solid $border;
+    border-bottom: 1px solid var(--border);
     display: flex;
     
     .m-button {
@@ -100,6 +129,7 @@ $top-bar-padding: 10px;
       padding: 0;
       margin: 0 ($top-bar-padding / 2);
       font-size: inherit;
+      color: var(--primary);
 
       display: block;
       background-color: transparent;
@@ -127,7 +157,7 @@ $top-bar-padding: 10px;
       font-size: .85em;
 
       display: block;
-      background-color: $primary-bg;
+      background-color: var(--primary-bg);
       border: none;
       padding: 0 ($control-size / 2);
       border-radius: $control-size / 2;
@@ -140,7 +170,7 @@ $top-bar-padding: 10px;
     .m-input:active,
     .m-input:focus {
       outline: none;
-      background-color: darken($primary-bg, .1);
+      background-color: var(--primary-bg);
     }
 
     .fill {
@@ -160,7 +190,7 @@ $top-bar-padding: 10px;
     width: $top-bar-height;
     padding: 0 ($top-bar-padding / 2);
 
-    border-right: 1px solid $border;
+    border-right: 1px solid var(--border);
 
     .m-button {
       padding: $top-bar-padding / 2;
@@ -171,7 +201,7 @@ $top-bar-padding: 10px;
       width: 100%;
       display: block;
       text-decoration: none;
-      color: $primary;
+      color: var(--primary);
       border-radius: $control-size / 3;
 
       white-space: nowrap;
@@ -189,7 +219,15 @@ $top-bar-padding: 10px;
 
     .m-button:hover,
     .m-button[active] {
-      background-color: $primary-bg;
+      background-color: var(--primary-bg);
+    }
+
+    .divider {
+      width: 100%;
+      height: 1px;
+      background-color: var(--border);
+      max-width: 80%;
+      margin: 0 auto;
     }
   }
 
@@ -203,9 +241,9 @@ $top-bar-padding: 10px;
 
       .m-menu-label {
         position: absolute;
-        background-color: white;
+        background-color: var(--secondary-bg);
         left: $control-size + $top-bar-padding * 3;
-        border: 1px solid $border;
+        border: 1px solid var(--border);
         padding: 0 $top-bar-padding;
         top: 0;
         height: $control-size + $top-bar-padding;
@@ -222,9 +260,9 @@ $top-bar-padding: 10px;
         left: - $control-size / 30 * 8;
         top: $control-size / 30 * 11;
         transform: rotate(45deg);
-        background-color: white;
-        border-left: 1px solid $border;
-        border-bottom: 1px solid $border;
+        background-color: var(--secondary-bg);
+        border-left: 1px solid var(--border);
+        border-bottom: 1px solid var(--border);
       }
     }
   }
@@ -232,7 +270,45 @@ $top-bar-padding: 10px;
   .m-sidebar {
     width: $top-bar-height * 5;
     right: -$top-bar-height * 5;
-    border-left: 1px solid $border;
+    border-left: 1px solid var(--border);
+
+    .m-widget {
+      padding: $top-bar-padding;
+
+      label {
+        font-size: .8em;
+        display: block;
+        width: 100%;
+        text-transform: uppercase;
+      }
+    }
+
+    .m-theme-switch {
+      overflow: hidden;
+
+      .m-button {
+        width: 50%;
+        height: $control-size * 2;
+        line-height: $control-size * 2;
+        display: block;
+        border: none;
+        float: left;
+
+        &.light {
+          background-color: var(--light);
+          color: --var('dark');
+        }
+
+        &.dark {
+          background-color: var(--dark);
+          color: var(--light);
+        }
+
+        &[active] {
+          border: 3px solid lightgreen;
+        }
+      }
+    }
   }
 
   #op-sidebar:checked~.m-sidebar {
