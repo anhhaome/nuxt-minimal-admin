@@ -165,6 +165,8 @@ $top-bar-padding: 10px;
     .m-button {
       padding: $top-bar-padding / 2;
       margin: ($top-bar-padding / 2) 0;
+      position: relative;
+      overflow: hidden;
 
       width: 100%;
       display: block;
@@ -173,7 +175,6 @@ $top-bar-padding: 10px;
       border-radius: $control-size / 3;
 
       white-space: nowrap;
-      overflow: hidden;
 
       transition: all .1s;
 
@@ -194,6 +195,38 @@ $top-bar-padding: 10px;
 
   #op-menubar:checked~.m-menubar {
     width: $top-bar-height * 5;
+  }
+
+  #op-menubar:not(:checked)~.m-menubar {
+    .m-button:hover {
+      overflow: visible;
+
+      .m-menu-label {
+        position: absolute;
+        background-color: white;
+        left: $control-size + $top-bar-padding * 3;
+        border: 1px solid $border;
+        padding: 0 $top-bar-padding;
+        top: 0;
+        height: $control-size + $top-bar-padding;
+        line-height: $control-size + $top-bar-padding;
+        border-radius: $top-bar-padding / 3;
+      }
+
+      .m-menu-label:before {
+        content: ' ';
+        width: $control-size / 2;
+        height: $control-size / 2;
+        display: block;
+        position: absolute;
+        left: - $control-size / 30 * 8;
+        top: $control-size / 30 * 11;
+        transform: rotate(45deg);
+        background-color: white;
+        border-left: 1px solid $border;
+        border-bottom: 1px solid $border;
+      }
+    }
   }
 
   .m-sidebar {
