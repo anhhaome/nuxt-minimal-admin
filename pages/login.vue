@@ -41,7 +41,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '@/assets/scss/colors.scss';
 @import '@/assets/scss/constants.scss';
 
 .m-form-wrapper {
@@ -53,12 +52,12 @@ export default {
   justify-content: center;
 
   .m-form {
-    background-color: $secondary-bg;
+    background-color: var(--secondary-bg);
     padding: 1em;
     max-width: 360px;
     width: 100%;
     border-radius: $radius;
-    border: 1px solid $border;
+    border: 1px solid var(--border);
 
     .m-logo {
       width: auto;

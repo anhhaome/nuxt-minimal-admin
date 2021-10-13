@@ -96,6 +96,8 @@ export default {
 @use "sass:math";
 @use "sass:color";
 
+@import '@/assets/scss/constants.scss';
+
 $top-bar-height: 50px;
 $top-bar-padding: 10px;
 
@@ -136,7 +138,7 @@ $top-bar-padding: 10px;
       border: none;
       text-align: center;
       cursor: pointer;
-      border-radius: $top-bar-padding / 3;
+      border-radius: $radius;
       font-family: inherit;
       text-decoration: none;
 
@@ -202,7 +204,7 @@ $top-bar-padding: 10px;
       display: block;
       text-decoration: none;
       color: var(--primary);
-      border-radius: $control-size / 3;
+      border-radius: $radius;
 
       white-space: nowrap;
 
@@ -248,7 +250,7 @@ $top-bar-padding: 10px;
         top: 0;
         height: $control-size + $top-bar-padding;
         line-height: $control-size + $top-bar-padding;
-        border-radius: $top-bar-padding / 3;
+        border-radius: $radius;
       }
 
       .m-menu-label:before {
