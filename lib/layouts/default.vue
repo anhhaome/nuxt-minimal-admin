@@ -25,28 +25,23 @@
 
     <!-- MENUBAR -->
     <div class="m-menubar">
-      <nuxt-link to="/" class="m-button" active>
-        <span class="icon-wrapper">
-          <i class="icon icon-fire"></i>
-        </span>
-        <span class="m-menu-label">Fire</span>
-      </nuxt-link>
-
-      <nuxt-link to="/" class="m-button">
-        <span class="icon-wrapper">
-          <i class="icon icon-cursor"></i>
-        </span>
-        <span class="m-menu-label">Cursor</span>
-      </nuxt-link>
-
-      <div class="divider"></div>
-
-      <nuxt-link to="/" class="m-button">
-        <span class="icon-wrapper">
-          <i class="icon icon-logout"></i>
-        </span>
-        <span class="m-menu-label">Logout</span>
-      </nuxt-link>
+      <template v-if="menuItems">
+        <component 
+          v-for="item in menuItems" 
+          :key="item.label" 
+          :is="item.type === 'link' ? 'nuxt-link' : 'div'" 
+          :class="item.type === 'link' ? 'm-button' : 'divider'"
+          :to="item.type === 'link' ? item.href : false"
+          :active="item.type === 'link' ? checkActive(item.href) : false"
+        >
+          <template v-if="item.type === 'link'">
+            <span class="icon-wrapper">
+              <i :class="`icon icon-${item.icon}`"></i>
+            </span>
+            <span class="m-menu-label">{{ item.label }}</span>
+          </template>
+        </component>
+      </template>
     </div>
     <!-- END MENUBAR -->
 
@@ -62,7 +57,7 @@
 
     <!-- CONTENT -->
     <div class="m-content">
-      <Nuxt />
+      <slot></slot>
     </div>
     <!-- END CONTENT -->
   </div>
@@ -70,6 +65,8 @@
 
 <script>
 export default {
+  props: ['menuItems'],
+
   data(){
     return {
       currentTheme: null
@@ -81,6 +78,10 @@ export default {
       this.currentTheme = type;
       localStorage.setItem('theme', this.currentTheme)
       document.body.setAttribute('theme', this.currentTheme);
+    },
+
+    checkActive(path){
+      return this.$route.path === path;
     }
   },
 
@@ -96,7 +97,7 @@ export default {
 @use "sass:math";
 @use "sass:color";
 
-@import '@/assets/scss/constants.scss';
+@import '../assets/scss/constants.scss';
 
 $top-bar-height: 50px;
 $top-bar-padding: 10px;
@@ -205,6 +206,7 @@ $top-bar-padding: 10px;
       text-decoration: none;
       color: var(--primary);
       border-radius: $radius;
+      cursor: pointer;
 
       white-space: nowrap;
 

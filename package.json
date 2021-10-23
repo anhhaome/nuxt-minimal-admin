@@ -1,5 +1,19 @@
 {
   "name": "nuxt-minimal-admin",
+  "version": "0.0.1",
+  "description": "A Minimal Admin template for NuxtJS",
+  "main": "./lib/index.js",
+  "keywords": [
+    "nuxtjs",
+    "admin",
+    "template"
+  ],
+  "author": "Vu Anh Hao <hi@anhhao.me> (http://www.anhhao.me)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/anhhaome/nginx-unit-client/issues"
+  },
+  "homepage": "https://github.com/anhhaome/nginx-unit-client#readme",
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",

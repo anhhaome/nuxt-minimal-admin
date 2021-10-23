@@ -1,4 +1,4 @@
-@import 'constants.scss';
+@import './constants.scss';
 
 @import url('https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.css');
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap');
@@ -7,6 +7,9 @@
 $font-family-base: 'Quicksand', Roboto;
 $headings-font-family: 'Josefin Sans', Roboto;
 $headings-font-weight: 600;
+
+$primary: #000;
+$secondary: #646464;
 
 @import 'bootstrap/scss/bootstrap.scss';
 @import 'bootstrap-vue/src/index.scss';
@@ -33,6 +36,11 @@ body {
   background-color: var(--primary-bg);
   color: var(--primary);
   overflow-y: scroll;
+}
+
+.heading {
+  font-family: $headings-font-family;
+  font-weight: $headings-font-weight;
 }
 
 .m-container {

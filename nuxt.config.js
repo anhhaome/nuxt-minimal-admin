@@ -1,14 +1,17 @@
 export default {
   ssr: false,
+  srcDir: "./src",
   router: {
     mode: 'hash'
   },
-  modules: ['bootstrap-vue/nuxt'],
+  modules: [
+    'bootstrap-vue/nuxt'
+  ],
   bootstrapVue: {
-    bootstrapCSS: false, // Or `css: false`
-    bootstrapVueCSS: false // Or `bvCSS: false`
+    bootstrapCSS: false,
+    bootstrapVueCSS: false
   },
-  css: [
-    '@/assets/scss/main.scss'
+  plugins: [
+    { src: '../lib/index.js'}
   ]
 }
