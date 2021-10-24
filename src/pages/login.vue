@@ -1,12 +1,18 @@
 <template>
   <div class="m-form-wrapper">
-    <n-login-form/>
+    <n-login-form @submit="submit"/>
   </div>
 </template>
 
 <script>
 export default {
-  layout: 'blank'
+  layout: 'blank',
+
+  methods: {
+    submit(form){
+      this.$noti('info', `You entered form with data: ${JSON.stringify(form)}`);
+    }
+  }
 }
 </script>
 
