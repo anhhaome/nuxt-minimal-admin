@@ -36,6 +36,15 @@ After that, using `nuxt-minimal-admin` as a plugin.
 }
 ```
 
+## Components
+
+- `n-default-layout`
+- `n-login-form`
+
+## Methods
+
+- `this.$noti(type, message)`
+
 ## License
 
 MIT
