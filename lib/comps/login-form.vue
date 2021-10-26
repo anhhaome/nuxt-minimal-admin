@@ -5,12 +5,12 @@
     <b-alert variant="danger" :show="!!error" class="m-alert">{{ error }}</b-alert>
 
     <b-form-group class="m-group">
-      <b-input class="m-input" v-model="email" :active="!!email"></b-input>
+      <b-input class="m-input" v-model="email" :active="!!email" @keyup.enter="submitForm"></b-input>
       <label for="" class="m-label">Email</label>
     </b-form-group>
 
     <b-form-group class="m-group">
-      <b-input type="password" class="m-input" v-model="password" :active="!!password"></b-input>
+      <b-input type="password" class="m-input" v-model="password" :active="!!password" @keyup.enter="submitForm"></b-input>
       <label for="" class="m-label">Password</label>
     </b-form-group>
 
