@@ -1,6 +1,8 @@
 <template>
   <b-form class="m-form" @submit="submitForm">
-    <img src="../assets/images/logo.png" alt="Logo" class="m-logo">
+    <slot name="logo">
+      <img src="../assets/images/logo.png" alt="Logo">
+    </slot>
 
     <b-alert variant="danger" :show="!!error" class="m-alert">{{ error }}</b-alert>
 
@@ -53,7 +55,7 @@ export default {
   border-radius: $radius;
   border: 1px solid var(--border);
 
-  .m-logo {
+  img {
     width: auto;
     max-width: 100%;
     max-height: 80px;

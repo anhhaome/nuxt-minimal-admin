@@ -7,6 +7,18 @@
       { label: 'Logout', icon: 'logout', type: 'link', href: '/login' }
     ]"
   >
+    <template v-slot:topbar>
+      <button class="m-button">
+        <i class="icon icon-home"></i>
+      </button>
+
+      <input type="text" class="m-input fill">
+    </template>
+
+    <template v-slot:sidebar>
+      <div class="text-center">This is a custom widget.</div>
+    </template>
+
     <Nuxt />
   </n-default-layout>
 </template>

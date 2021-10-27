@@ -11,11 +11,7 @@
         <i class="icon icon-menu"></i>
       </label>
 
-      <button class="m-button">
-        <i class="icon icon-home"></i>
-      </button>
-
-      <input type="text" class="m-input fill">
+      <slot name="topbar"></slot>
 
       <label class="m-button" for="op-sidebar">
         <i class="icon icon-settings"></i>
@@ -47,17 +43,22 @@
 
     <!-- SIDEBAR -->
     <div class="m-sidebar">
+      
       <div class="m-theme-switch m-widget">
         <label for="">Theme</label>
         <button class="m-button dark" @click="setTheme('dark')" :active="currentTheme === 'dark'">Dark</button>
         <button class="m-button light" @click="setTheme('light')" :active="currentTheme === 'light'">Light</button>
       </div>
+
+      <slot name="sidebar"></slot>
     </div>
     <!-- END SIDEBAR -->
 
     <!-- CONTENT -->
     <div class="m-content">
-      <slot></slot>
+      <slot>
+        <Nuxt />
+      </slot>
     </div>
     <!-- END CONTENT -->
   </div>
@@ -124,6 +125,7 @@ $top-bar-padding: 10px;
     
     border-bottom: 1px solid var(--border);
     display: flex;
+    justify-content: space-between;
     
     .m-button {
       width: $control-size;

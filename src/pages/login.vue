@@ -1,6 +1,10 @@
 <template>
   <div class="m-form-wrapper">
-    <n-login-form @submit="submit"/>
+    <n-login-form @submit="submit">
+      <template v-slot:logo>
+        <img src="../assets/images/logo.png" alt="Logo">
+      </template>
+    </n-login-form>
   </div>
 </template>
 
