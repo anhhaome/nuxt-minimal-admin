@@ -65,3 +65,28 @@ body {
     padding: .5em .8em;
   }
 }
+
+// loader
+@keyframes nSpin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.n-loader {
+  position: fixed;
+  bottom: 1em;
+  left: 1em;
+  z-index: 2000;
+  display: none;
+
+  border: 5px solid #e0e0e0; /* Light grey */
+  border-top: 5px solid #424242; /* Blue */
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  animation: nSpin .5s linear infinite;
+}
+
+.n-loader[enabled] {
+  display: block;
+}

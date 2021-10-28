@@ -13,7 +13,10 @@ export default {
   layout: 'blank',
 
   methods: {
-    submit(form){
+    async submit(form){
+      this.$loader.start();
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      this.$loader.end();
       this.$noti('info', `You entered form with data: ${JSON.stringify(form)}`);
     }
   }
