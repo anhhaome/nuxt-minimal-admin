@@ -17,6 +17,7 @@ export default {
       this.$loader.start();
       await new Promise(resolve => setTimeout(resolve, 1000));
       this.$loader.end();
+      this.$router.push('/');
       this.$noti('info', `You entered form with data: ${JSON.stringify(form)}`);
     }
   }
