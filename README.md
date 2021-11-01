@@ -45,6 +45,12 @@ After that, using `nuxt-minimal-admin` as a plugin.
 
 - `this.$noti(type, message)`
 
+## Classes
+
+- `m-container`
+- `m-panel`
+- `m-table`
+
 ## License
 
 MIT
