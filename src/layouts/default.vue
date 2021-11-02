@@ -1,5 +1,5 @@
 <template>
-  <n-default-layout
+  <m-default-layout
     :menuItems="[
       { label: 'Home', icon: 'fire', type: 'link', href: '/' },
       { label: 'Components', icon: 'cursor', type: 'link', href: '/comps' },
@@ -20,7 +20,7 @@
     </template>
 
     <Nuxt />
-  </n-default-layout>
+  </m-default-layout>
 </template>
 
 <script>
