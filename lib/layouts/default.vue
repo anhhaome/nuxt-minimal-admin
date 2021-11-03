@@ -11,7 +11,7 @@
         <i class="icon icon-menu"></i>
       </label>
 
-      <slot name="topbar"></slot>
+      <slot name="topbar" v-bind:pageTitle="currentPageTitle"></slot>
 
       <label class="m-button" for="op-sidebar">
         <i class="icon icon-settings"></i>
@@ -71,6 +71,18 @@ export default {
   data(){
     return {
       currentTheme: null
+    }
+  },
+
+  computed: {
+    currentPageTitle(){
+      for (let item of this.menuItems){
+        if (this.checkActive(item.href)){
+          return item.label;
+        }
+      }
+
+      return null;
     }
   },
 
@@ -180,6 +192,11 @@ $top-bar-padding: 10px;
 
     .fill {
       flex-grow: 1;
+    }
+
+    .m-page-title {
+      line-height: $control-size * 1.05;
+      margin: 0 ($top-bar-padding / 2);
     }
   }
 

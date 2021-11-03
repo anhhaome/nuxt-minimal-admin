@@ -7,10 +7,12 @@
       { label: 'Logout', icon: 'logout', type: 'link', href: '/login' }
     ]"
   >
-    <template v-slot:topbar>
+    <template v-slot:topbar="params">
       <button class="m-button">
         <i class="icon icon-home"></i>
       </button>
+
+      <div class="m-page-title">{{ params.pageTitle }}</div>
 
       <input type="text" class="m-input fill">
     </template>
