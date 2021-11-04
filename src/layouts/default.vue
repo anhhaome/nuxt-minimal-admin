@@ -2,7 +2,7 @@
   <m-default-layout
     :menuItems="[
       { label: 'Home', icon: 'fire', type: 'link', href: '/' },
-      { label: 'Components', icon: 'cursor', type: 'link', href: '/comps' },
+      { label: 'Components', icon: 'cursor', type: 'link', href: '/parent' },
       { label: 'Devider 1', type: 'divider' },
       { label: 'Logout', icon: 'logout', type: 'link', href: '/login' }
     ]"
