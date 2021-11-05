@@ -44,7 +44,15 @@ body {
 }
 
 .m-container {
-  padding: 1em;
+  padding: 1em 0 0 1em;
+}
+
+.m-container .row {
+  margin: .5em -.5em .5em -.5em;
+}
+
+.m-container .col {
+  padding: .5em;
 }
 
 .m-panel {
