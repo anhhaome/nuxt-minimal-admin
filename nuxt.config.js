@@ -5,13 +5,11 @@ export default {
     mode: 'hash'
   },
   modules: [
-    'bootstrap-vue/nuxt'
+    'bootstrap-vue/nuxt',
+    '../lib'
   ],
   bootstrapVue: {
     bootstrapCSS: false,
     bootstrapVueCSS: false
-  },
-  plugins: [
-    { src: '../lib/index.js'}
-  ]
+  }
 }

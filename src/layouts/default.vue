@@ -1,10 +1,10 @@
 <template>
   <m-default-layout
     :menuItems="[
-      { label: 'Home', icon: 'fire', type: 'link', href: '/' },
-      { label: 'Components', icon: 'cursor', type: 'link', href: '/parent' },
+      { label: 'Home', icon: 'planet', type: 'link', href: '/' },
+      { label: 'Components', icon: 'cube', type: 'link', href: '/parent' },
       { label: 'Devider 1', type: 'divider' },
-      { label: 'Logout', icon: 'logout', type: 'link', href: '/login' }
+      { label: 'Logout', icon: 'log-out', type: 'link', href: '/login' }
     ]"
   >
     <template v-slot:topbar="params">

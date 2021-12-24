@@ -32,7 +32,7 @@
         >
           <template v-if="item.type === 'link'">
             <span class="icon-wrapper">
-              <i :class="`icon icon-${item.icon}`"></i>
+              <ion-icon size="small" :name="`${item.icon}-outline`"></ion-icon>
             </span>
             <span class="m-menu-label">{{ item.label }}</span>
           </template>
@@ -241,6 +241,12 @@ $top-bar-padding: 10px;
         line-height: $control-size;
         display: inline-block;
         text-align: center;
+        padding: $control-size / 10;
+      }
+
+      .m-menu-label {
+        line-height: $control-size;
+        vertical-align: top;
       }
     }
 
