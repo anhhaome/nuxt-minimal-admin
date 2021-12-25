@@ -9,7 +9,7 @@
   >
     <template v-slot:topbar="params">
       <button class="m-button">
-        <i class="icon icon-home"></i>
+        <ion-icon name="home-outline"></ion-icon>
       </button>
 
       <div class="m-page-title">{{ params.pageTitle }}</div>

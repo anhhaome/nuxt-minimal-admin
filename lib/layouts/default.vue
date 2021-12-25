@@ -8,13 +8,13 @@
     <!-- TOPBAR -->
     <div class="m-topbar">
       <label class="m-button" for="op-menubar">
-        <i class="icon icon-menu"></i>
+        <ion-icon name="grid-outline"></ion-icon>
       </label>
 
       <slot name="topbar" v-bind:pageTitle="currentPageTitle"></slot>
 
       <label class="m-button" for="op-sidebar">
-        <i class="icon icon-settings"></i>
+        <ion-icon name="settings-outline"></ion-icon>
       </label>
     </div>
     <!-- END TOPBAR -->
@@ -32,7 +32,7 @@
         >
           <template v-if="item.type === 'link'">
             <span class="icon-wrapper">
-              <ion-icon size="small" :name="`${item.icon}-outline`"></ion-icon>
+              <ion-icon :name="`${item.icon}-outline`"></ion-icon>
             </span>
             <span class="m-menu-label">{{ item.label }}</span>
           </template>
@@ -148,6 +148,7 @@ $top-bar-padding: 10px;
       height: $control-size;
       line-height: $control-size * 1.05;
       padding: 0;
+      padding-top: $control-size / 10;
       margin: 0 ($top-bar-padding / 2);
       font-size: inherit;
       color: var(--primary);
@@ -165,7 +166,7 @@ $top-bar-padding: 10px;
     }
 
     .m-button:hover {
-      font-size: 1.2em;
+      transform: scale(1.2, 1.2);
     }
 
     .m-input {
