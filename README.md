@@ -8,30 +8,19 @@ npm install --save nuxt-minimal-admin
 
 ## Config
 
-In `nuxt.config.js`, you must install `bootstrap-vue` by:
+In `nuxt.config.js`, you must install `bootstrap-vue` and `nuxt-minimal-admin` by:
 
 ```js
 {
   ...
   modules: [
-    'bootstrap-vue/nuxt'
+    'bootstrap-vue/nuxt',
+    'nuxt-minimal-admin'
   ],
   bootstrapVue: {
     bootstrapCSS: false,
     bootstrapVueCSS: false
   }
-  ...
-}
-```
-
-After that, using `nuxt-minimal-admin` as a plugin.
-
-```js
-{
-  ...
-  plugins: [
-    { src: 'node_modules/nuxt-minimal-admin/index.js'}
-  ]
   ...
 }
 ```
