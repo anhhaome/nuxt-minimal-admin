@@ -34,6 +34,14 @@ In `nuxt.config.js`, you must install `bootstrap-vue` and `nuxt-minimal-admin` b
 
 - `this.$noti(type, message)`
 
+## Colors
+
+- `--primary`: Color for text.
+- `--secondary`:
+- `--primary-bg`: Color for background.
+- `--secondary-bg`:
+- `--border`: Border color.
+
 ## Classes
 
 - `m-container`

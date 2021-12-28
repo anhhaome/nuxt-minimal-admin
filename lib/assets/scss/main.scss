@@ -101,3 +101,10 @@ ion-icon {
 .n-loader[enabled] {
   display: block;
 }
+
+/* bootstrap vue */
+.list-group-item {
+  background-color: var(--secondary-bg);
+  color: var(--primary);
+  border-color: var(--border);
+}
