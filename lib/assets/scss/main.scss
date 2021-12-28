@@ -43,21 +43,24 @@ body {
 }
 
 .m-container {
-  padding: 1em 0 0 1em;
-}
+  width: 100%;
+  padding-top: 15px;
+  padding-right: 22.5px;
+  padding-left: 22.5px;
+  margin-right: auto;
+  margin-left: auto;
 
-.m-container .row {
-  margin: .5em -.5em .5em -.5em;
-}
-
-.m-container .col {
-  padding: .5em;
+  .col {
+    padding-right: 7.5px;
+    padding-left: 7.5px;
+  }
 }
 
 .m-panel {
   background-color: var(--secondary-bg);
   padding: 1em;
   border-radius: $radius;
+  margin-bottom: 1em;
 }
 
 .m-table {

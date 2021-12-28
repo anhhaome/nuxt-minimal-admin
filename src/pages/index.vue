@@ -1,26 +1,38 @@
 <template>
   <div>
     <div class="m-container">
-      <div class="m-panel">
-        <h4>Table</h4>
-        <table class="m-table">
-          <thead>
-            <th>Name</th>
-            <th>Age</th>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Cat</td>
-              <td>12</td>
-            </tr>
-            <tr>
-              <td>Dog</td>
-              <td>6</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+      <b-row>
+        <b-col>
+          <div class="m-panel">
+            <h4>Welcome</h4>
+          </div>
+        </b-col>
+      </b-row>
 
+      <b-row>
+        <b-col>
+          <div class="m-panel">
+            <h4>Table</h4>
+            <table class="m-table">
+              <thead>
+                <th>Name</th>
+                <th>Age</th>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Cat</td>
+                  <td>12</td>
+                </tr>
+                <tr>
+                  <td>Dog</td>
+                  <td>6</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </b-col>
+      </b-row>
+    
       <div class="row">
         <div class="col col-12 col-md-6">
           <div class="m-panel">
