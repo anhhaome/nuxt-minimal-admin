@@ -248,6 +248,7 @@ $top-bar-padding: 10px;
       .m-menu-label {
         line-height: $control-size;
         vertical-align: top;
+        text-transform: capitalize;
       }
     }
 
