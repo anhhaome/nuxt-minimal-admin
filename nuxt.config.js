@@ -4,12 +4,18 @@ export default {
   router: {
     mode: 'hash'
   },
-  modules: [
-    'bootstrap-vue/nuxt',
-    '../lib'
+  buildModules: [
+    '@nuxt/postcss8',
   ],
-  bootstrapVue: {
-    bootstrapCSS: false,
-    bootstrapVueCSS: false
-  }
+  build: {
+    postcss: {
+      plugins: {
+        tailwindcss: {},
+        autoprefixer: {},
+      },
+    },
+  },
+  modules: [
+    '../lib'
+  ]
 }

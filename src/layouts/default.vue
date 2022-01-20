@@ -8,17 +8,7 @@
     ]"
   >
     <template v-slot:topbar="params">
-      <button class="m-button">
-        <ion-icon name="home-outline"></ion-icon>
-      </button>
-
-      <div class="m-page-title">{{ params.pageTitle }}</div>
-
-      <input type="text" class="m-input fill">
-    </template>
-
-    <template v-slot:sidebar>
-      <div class="text-center">This is a custom widget.</div>
+      <div class="p-2.5 font-bold">{{ params.pageTitle }}</div>
     </template>
 
     <Nuxt />

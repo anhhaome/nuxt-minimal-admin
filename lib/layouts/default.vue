@@ -1,38 +1,38 @@
 <template>
-  <div class="m-app">
+  <div class="bg-gray-100 min-h-screen">
     <!-- UI CONTROLS -->
-    <input type="checkbox" class="m-ui-control" id="op-menubar">
-    <input type="checkbox" class="m-ui-control" id="op-sidebar">
+    <input type="checkbox" id="op-sidebar">
     <!-- END UI CONTROLS -->
 
     <!-- TOPBAR -->
-    <div class="m-topbar">
-      <label class="m-button" for="op-menubar">
-        <ion-icon name="grid-outline"></ion-icon>
-      </label>
-
+    <div class="fixed top-0 left-0 w-full h-12 bg-white border-b pl-12 overflow-hidden">
       <slot name="topbar" v-bind:pageTitle="currentPageTitle"></slot>
-
-      <label class="m-button" for="op-sidebar">
-        <ion-icon name="settings-outline"></ion-icon>
-      </label>
     </div>
     <!-- END TOPBAR -->
 
     <!-- MENUBAR -->
-    <div class="m-menubar">
+    <input type="checkbox" class="hidden peer" id="open-menu-bar">
+    <label class="fixed hidden top-0 left-0 bg-white w-screen h-screen opacity-60 peer-checked:block" for="open-menu-bar"></label>
+    <div class="fixed top-0 left-0 w-12 h-screen bg-white border-r overflow-hidden peer-checked:w-auto">
+
+      <!-- EXPAND BUTTON -->
+      <label class="block w-full h-12 p-3 leading-6 cursor-pointer border-b" for="open-menu-bar">
+        <ion-icon class="text-xl" name="grid-outline"></ion-icon>
+      </label>
+      <!-- END EXPAND BUTTON -->
+
       <template v-if="menuItems">
         <component 
           v-for="item in menuItems" 
           :key="item.label" 
           :is="item.type === 'link' ? 'nuxt-link' : 'div'" 
-          :class="item.type === 'link' ? 'm-button' : 'divider'"
+          :class="item.type === 'link' ? 'flex w-full h-12 p-3 leading-6 m-active:bg-gray-100' : 'divider'"
           :to="item.type === 'link' ? item.href : false"
           :active="item.type === 'link' ? checkActive(item.href) : false"
         >
           <template v-if="item.type === 'link'">
-            <span class="icon-wrapper">
-              <ion-icon :name="`${item.icon}-outline`"></ion-icon>
+            <span class="pr-4">
+              <ion-icon class="text-xl" :name="`${item.icon}-outline`"></ion-icon>
             </span>
             <span class="m-menu-label">{{ item.label }}</span>
           </template>
@@ -40,19 +40,6 @@
       </template>
     </div>
     <!-- END MENUBAR -->
-
-    <!-- SIDEBAR -->
-    <div class="m-sidebar">
-      
-      <div class="m-theme-switch m-widget">
-        <label for="">Theme</label>
-        <button class="m-button dark" @click="setTheme('dark')" :active="currentTheme === 'dark'">Dark</button>
-        <button class="m-button light" @click="setTheme('light')" :active="currentTheme === 'light'">Light</button>
-      </div>
-
-      <slot name="sidebar"></slot>
-    </div>
-    <!-- END SIDEBAR -->
 
     <!-- CONTENT -->
     <div class="m-content">
@@ -109,250 +96,3 @@ export default {
   },
 }
 </script>
-
-<style lang="scss" scoped>
-@use "sass:math";
-@use "sass:color";
-
-@import '../assets/scss/constants.scss';
-
-$top-bar-height: 50px;
-$top-bar-padding: 10px;
-
-.m-app {
-  $control-size: $top-bar-height - $top-bar-padding * 2;
-
-  .m-ui-control {
-    display: none;
-  }
-
-  .m-topbar,
-  .m-menubar,
-  .m-sidebar {
-    background-color: var(--secondary-bg);
-    position: fixed;
-    z-index: 100;
-  }
-
-  .m-topbar {
-    width: 100%;
-    height: $top-bar-height;
-    padding: $top-bar-padding ($top-bar-padding / 2);
-    
-    border-bottom: 1px solid var(--border);
-    display: flex;
-    justify-content: space-between;
-    
-    .m-button {
-      width: $control-size;
-      height: $control-size;
-      line-height: $control-size * 1.05;
-      padding: 0;
-      padding-top: $control-size / 10;
-      margin: 0 ($top-bar-padding / 2);
-      font-size: inherit;
-      color: var(--primary);
-
-      display: block;
-      background-color: transparent;
-      border: none;
-      text-align: center;
-      cursor: pointer;
-      border-radius: $radius;
-      font-family: inherit;
-      text-decoration: none;
-
-      transition: all .1s;
-    }
-
-    .m-button:hover {
-      transform: scale(1.2, 1.2);
-    }
-
-    .m-input {
-      padding: 0;
-      margin: 0 ($top-bar-padding / 2);
-
-      min-width: 10px;
-      height: $control-size;
-      line-height: $control-size;
-      font-size: .85em;
-
-      display: block;
-      background-color: var(--primary-bg);
-      border: none;
-      padding: 0 ($control-size / 2);
-      border-radius: $control-size / 2;
-      font-family: inherit;
-
-      transition: all .1s;
-    }
-
-    .m-input:hover,
-    .m-input:active,
-    .m-input:focus {
-      outline: none;
-      background-color: var(--primary-bg);
-    }
-
-    .fill {
-      flex-grow: 1;
-    }
-
-    .m-page-title {
-      line-height: $control-size * 1.05;
-      margin: 0 ($top-bar-padding / 2);
-    }
-  }
-
-  .m-menubar,
-  .m-sidebar {
-    top: $top-bar-height;
-    transition: all .2s;
-    height: 100%;
-  }
-
-  .m-menubar {
-    left: 0;
-    width: $top-bar-height;
-    padding: 0 ($top-bar-padding / 2);
-
-    border-right: 1px solid var(--border);
-
-    .m-button {
-      padding: $top-bar-padding / 2;
-      margin: ($top-bar-padding / 2) 0;
-      position: relative;
-      overflow: hidden;
-
-      width: 100%;
-      display: block;
-      text-decoration: none;
-      color: var(--primary);
-      border-radius: $radius;
-      cursor: pointer;
-
-      white-space: nowrap;
-
-      transition: all .1s;
-
-      .icon-wrapper {
-        width: $control-size;
-        height: $control-size;
-        line-height: $control-size;
-        display: inline-block;
-        text-align: center;
-        padding: $control-size / 10;
-      }
-
-      .m-menu-label {
-        line-height: $control-size;
-        vertical-align: top;
-        text-transform: capitalize;
-      }
-    }
-
-    .m-button:hover,
-    .m-button[active] {
-      background-color: var(--primary-bg);
-    }
-
-    .divider {
-      width: 100%;
-      height: 1px;
-      background-color: var(--border);
-      max-width: 80%;
-      margin: 0 auto;
-    }
-  }
-
-  #op-menubar:checked~.m-menubar {
-    width: $top-bar-height * 5;
-  }
-
-  #op-menubar:not(:checked)~.m-menubar {
-    .m-button:hover {
-      overflow: visible;
-
-      .m-menu-label {
-        position: absolute;
-        background-color: var(--secondary-bg);
-        left: $control-size + $top-bar-padding * 3;
-        border: 1px solid var(--border);
-        padding: 0 $top-bar-padding;
-        top: 0;
-        height: $control-size + $top-bar-padding;
-        line-height: $control-size + $top-bar-padding;
-        border-radius: $radius;
-      }
-
-      .m-menu-label:before {
-        content: ' ';
-        width: $control-size / 2;
-        height: $control-size / 2;
-        display: block;
-        position: absolute;
-        left: - $control-size / 30 * 8;
-        top: $control-size / 30 * 11;
-        transform: rotate(45deg);
-        background-color: var(--secondary-bg);
-        border-left: 1px solid var(--border);
-        border-bottom: 1px solid var(--border);
-      }
-    }
-  }
-
-  .m-sidebar {
-    width: $top-bar-height * 5;
-    right: -$top-bar-height * 5;
-    border-left: 1px solid var(--border);
-
-    .m-widget {
-      padding: $top-bar-padding;
-
-      label {
-        font-size: .8em;
-        display: block;
-        width: 100%;
-        text-transform: uppercase;
-      }
-    }
-
-    .m-theme-switch {
-      overflow: hidden;
-
-      .m-button {
-        width: 50%;
-        height: $control-size * 2;
-        line-height: $control-size * 2;
-        display: block;
-        border: none;
-        float: left;
-
-        &.light {
-          background-color: var(--light);
-          color: --var('dark');
-        }
-
-        &.dark {
-          background-color: var(--dark);
-          color: var(--light);
-        }
-
-        &[active] {
-          border: 3px solid lightgreen;
-        }
-      }
-    }
-  }
-
-  #op-sidebar:checked~.m-sidebar {
-    right: 0;
-  }
-
-  .m-content {
-    padding-top: $top-bar-height;
-    padding-left: $top-bar-height;
-  }
-}
-</style>
