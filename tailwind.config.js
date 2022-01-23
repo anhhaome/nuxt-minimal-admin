@@ -12,13 +12,14 @@ module.exports = {
     }
   },
   plugins: [
+    require('@tailwindcss/typography'),
     plugin(function({ addBase, addVariant, theme }) {
       addVariant('m-active', '&[active]');
 
       addBase({
-        'h1': { fontSize: theme('fontSize.2xl'), fontFamily: 'Josefin Sans' },
-        'h2': { fontSize: theme('fontSize.xl'), fontFamily: 'Josefin Sans' },
-        'h3': { fontSize: theme('fontSize.lg'), fontFamily: 'Josefin Sans' },
+        'h1': { fontSize: theme('fontSize.3xl'), fontFamily: 'Josefin Sans' },
+        'h2': { fontSize: theme('fontSize.2xl'), fontFamily: 'Josefin Sans' },
+        'h3': { fontSize: theme('fontSize.xl'), fontFamily: 'Josefin Sans' },
       });
     }),
   ],

@@ -1,19 +1,17 @@
 <template>
   <div class="bg-gray-100 min-h-screen">
-    <!-- UI CONTROLS -->
-    <input type="checkbox" id="op-sidebar">
-    <!-- END UI CONTROLS -->
-
     <!-- TOPBAR -->
-    <div class="fixed top-0 left-0 w-full h-12 bg-white border-b pl-12 overflow-hidden">
+    <div class="fixed z-10 top-0 left-0 w-full h-12 bg-white border-b pl-12 overflow-hidden">
       <slot name="topbar" v-bind:pageTitle="currentPageTitle"></slot>
     </div>
     <!-- END TOPBAR -->
 
     <!-- MENUBAR -->
     <input type="checkbox" class="hidden peer" id="open-menu-bar">
-    <label class="fixed hidden top-0 left-0 bg-white w-screen h-screen opacity-60 peer-checked:block" for="open-menu-bar"></label>
-    <div class="fixed top-0 left-0 w-12 h-screen bg-white border-r overflow-hidden peer-checked:w-auto">
+    <label class="fixed z-10 opacity-0 top-0 left-0 bg-black w-screen h-screen transition-opacity pointer-events-none 
+      peer-checked:opacity-60 peer-checked:pointer-events-auto" for="open-menu-bar"></label>
+    <div class="fixed z-10 top-0 left-0 w-12 h-screen bg-white border-r overflow-hidden select-none transition-all 
+      peer-checked:w-64">
 
       <!-- EXPAND BUTTON -->
       <label class="block w-full h-12 p-3 leading-6 cursor-pointer border-b" for="open-menu-bar">
@@ -26,7 +24,10 @@
           v-for="item in menuItems" 
           :key="item.label" 
           :is="item.type === 'link' ? 'nuxt-link' : 'div'" 
-          :class="item.type === 'link' ? 'flex w-full h-12 p-3 leading-6 m-active:bg-gray-100' : 'divider'"
+          :class="
+            item.type === 'link' ? 
+              'flex w-full h-12 p-3 leading-6 m-active:bg-gray-100' : 
+              'h-[1px] bg-gray-300 mx-2'"
           :to="item.type === 'link' ? item.href : false"
           :active="item.type === 'link' ? checkActive(item.href) : false"
         >
@@ -42,7 +43,8 @@
     <!-- END MENUBAR -->
 
     <!-- CONTENT -->
-    <div class="m-content">
+    <div class="pl-12 pt-12 
+      peer-checked:blur-sm">
       <slot>
         <Nuxt />
       </slot>

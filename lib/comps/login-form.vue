@@ -1,23 +1,20 @@
 <template>
-  <b-form class="m-form" @submit="submitForm">
-    <slot name="logo">
-      <img src="../assets/images/logo.png" alt="Logo">
-    </slot>
+  <div @submit="submitForm">
+    <!-- Logo -->
+    <div class="max-w-[6em] mx-auto mb-4">
+      <slot name="logo">
+        <img src="../assets/images/logo.png" alt="Logo">
+      </slot>
+    </div>
+    <!-- End Logo -->
 
-    <b-alert variant="danger" :show="!!error" class="m-alert">{{ error }}</b-alert>
+    <div class="bg-red-100 text-red-700 border border-red-700 text-sm font-bold rounded p-2 mb-4" v-if="error">{{ error }}</div>
 
-    <b-form-group class="m-group">
-      <b-input class="m-input" v-model="email" :active="!!email" @keyup.enter="submitForm"></b-input>
-      <label for="" class="m-label">Email</label>
-    </b-form-group>
+    <m-input label="Email" type="email" class="mb-4"></m-input>
+    <m-input label="Password" type="password" class="mb-4"></m-input>
 
-    <b-form-group class="m-group">
-      <b-input type="password" class="m-input" v-model="password" :active="!!password" @keyup.enter="submitForm"></b-input>
-      <label for="" class="m-label">Password</label>
-    </b-form-group>
-
-    <b-button variant="primary" class="m-button" @click="submitForm">Login</b-button>
-  </b-form>
+    <m-button @click="submitForm" class="block w-full font-bold">LOGIN</m-button>
+  </div>
 </template>
 
 <script>

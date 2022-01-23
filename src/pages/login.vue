@@ -1,6 +1,9 @@
 <template>
-  <div class="m-form-wrapper">
-    <m-login-form @submit="submit">
+  <div class="flex min-h-screen items-center justify-center">
+    <m-login-form 
+      @submit="submit" 
+      class="bg-white p-4 border rounded w-80"
+    >
       <template v-slot:logo>
         <img src="../assets/images/logo.png" alt="Logo">
       </template>
@@ -23,14 +26,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-.m-form-wrapper {
-  padding: 1em;
-  width: 100%;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-</style>
