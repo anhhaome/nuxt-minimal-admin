@@ -1,8 +1,9 @@
 export default {
   ssr: false,
+  target: 'static',
   srcDir: "./src",
   router: {
-    mode: 'hash'
+    base: '/nuxt-minimal-admin/'
   },
   buildModules: [
     '@nuxt/postcss8',

@@ -16,8 +16,8 @@
   "homepage": "https://github.com/anhhaome/nuxt-minimal-admin#readme",
   "scripts": {
     "dev": "nuxt",
-    "build": "nuxt build",
-    "generate": "nuxt generate",
+    "build": "NODE_ENV=production nuxt build",
+    "generate": "NODE_ENV=production nuxt generate",
     "start": "nuxt start"
   },
   "devDependencies": {
