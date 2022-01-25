@@ -4,14 +4,9 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Loader */
 @layer components {
-  // loader
-  @keyframes nSpin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-  }
-
-  .n-loader {
+  .m-loader {
     position: fixed;
     bottom: 1em;
     left: 1em;
@@ -23,10 +18,52 @@
     border-radius: 50%;
     width: 30px;
     height: 30px;
-    animation: nSpin .5s linear infinite;
+    
+    @apply animate-spin;
   }
 
-  .n-loader[enabled] {
+  .m-loader[enabled] {
     display: block;
+  }
+}
+/* End Loader */
+
+/* Color Schema */
+@layer components {
+  .primary, .secondary, .info, .danger, .error, .success, .warning {
+    @apply text-white;
+  }
+
+  .primary { @apply bg-black; }
+  .secondary { @apply bg-slate-600; }
+  .info { @apply bg-emerald-600; }
+  .danger, .error { @apply bg-red-600; }
+  .success { @apply bg-green-600; }
+  .warning { @apply bg-amber-600; }
+
+  .border.primary { @apply border-black; }
+  .border.secondary { @apply border-slate-800; }
+  .border.info { @apply border-emerald-800; }
+  .border.danger, .border.error { @apply border-red-800; }
+  .border.success { @apply border-green-800; }
+  .border.warning { @apply border-amber-800; }
+
+  .alert.primary { @apply bg-gray-200 text-gray-800; }
+  .alert.secondary { @apply bg-slate-200 text-slate-800; }
+  .alert.info { @apply bg-emerald-200 text-emerald-800; }
+  .alert.danger, .alert.error { @apply bg-red-200 text-red-800; }
+  .alert.success { @apply bg-green-200 text-green-800; }
+  .alert.warning { @apply bg-amber-200 text-amber-800; }
+}
+/* End Color Schema */
+
+/* Notice */
+@layer components {
+  .m-notice-wrapper {
+    @apply fixed bottom-5 right-5 max-w-md;
+  }
+
+  .m-notice {
+    @apply py-2 px-3 text-sm border shadow rounded mt-3 transition-all cursor-pointer;
   }
 }

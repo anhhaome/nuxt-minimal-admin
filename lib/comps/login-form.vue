@@ -8,7 +8,7 @@
     </div>
     <!-- End Logo -->
 
-    <div class="bg-red-100 text-red-700 border border-red-700 text-sm font-bold rounded p-2 mb-4" v-if="error">{{ error }}</div>
+    <div class="alert danger border text-center text-sm font-bold rounded p-2 mb-4" v-if="error">{{ error }}</div>
 
     <m-input label="Email" type="email" class="mb-4"></m-input>
     <m-input label="Password" type="password" class="mb-4"></m-input>
