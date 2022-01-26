@@ -1,52 +1,112 @@
 # Nuxt Minimal Admin
 
+## Demo
+
+You can try a demo at: [anhhao.me/nuxt-minimal-admin](https://git.anhhao.me/nuxt-minimal-admin/)
+
 ## Install
 
+Install following packages:
+
 ```bash
-npm install --save nuxt-minimal-admin
+npm install --save nuxt-minimal-admin tailwindcss postcss@latest autoprefixer@latest @nuxt/postcss8 @tailwindcss/typography
 ```
 
-## Config
+Create `tailwind.config.js` file with content:
 
-In `nuxt.config.js`, you must install `bootstrap-vue` and `nuxt-minimal-admin` by:
+```js
+const defaultConfig = require('nuxt-minimal-admin/tailwind.config');
+
+module.exports = {
+  ...defaultConfig,
+  content: [
+    './node_modules/nuxt-minimal-admin/lib/**/*.{js,vue,ts}',
+    './comps/**/*.{js,vue,ts}',
+    './layouts/**/*.{js,vue,ts}',
+    './pages/**/*.{js,vue,ts}'
+  ]
+}
+
+```
+
+Append `nuxt.config.js`:
 
 ```js
 {
-  ...
-  modules: [
-    'bootstrap-vue/nuxt',
-    'nuxt-minimal-admin'
+  /* ... */
+
+  buildModules: [
+    '@nuxt/postcss8',
   ],
-  bootstrapVue: {
-    bootstrapCSS: false,
-    bootstrapVueCSS: false
-  }
-  ...
+  build: {
+    postcss: {
+      plugins: {
+        tailwindcss: {},
+        autoprefixer: {},
+      },
+    },
+  },
+  modules: [
+    'nuxt-minimal-admin'
+  ]
+
+  /* ... */
 }
 ```
 
-## Components
+Add the Tailwind to CSS `./assets/css/main.css`
 
-- `n-default-layout`
-- `n-login-form`
+```css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
 
-## Methods
+Import CSS to `nuxt.config.js`
 
-- `this.$noti(type, message)`
+```js
+{
+  /* ... */
+  css: [ '@/assets/css/main.css' ],
+  /* ... */
+}
+```
 
-## Colors
+## Api
 
-- `--primary`: Color for text.
-- `--secondary`:
-- `--primary-bg`: Color for background.
-- `--secondary-bg`:
-- `--border`: Border color.
+### Components
 
-## Classes
+**m-default-layout**
 
-- `m-container`
-- `m-panel`
-- `m-table`
+**m-login-form**
+
+**m-panel**
+
+**m-button**
+
+**m-input**
+
+**m-checkbox-group**
+
+**m-checkbox-control**
+
+**m-checkbox**
+
+### Classes
+
+- `primary`
+- `secondary`
+- `info`
+- `success`
+- `danger` or `error`
+- `warning`
+- `alert`
+
+### Utilities
+
+- `$loader.start()`
+- `$loader.end()`
+- `$noti(type, message)`
 
 ## License
 
