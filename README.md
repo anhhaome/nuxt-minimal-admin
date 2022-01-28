@@ -9,7 +9,7 @@ You can try a demo at: [anhhao.me/nuxt-minimal-admin](https://git.anhhao.me/nuxt
 Install following packages:
 
 ```bash
-npm install --save nuxt-minimal-admin tailwindcss postcss@latest autoprefixer@latest @nuxt/postcss8 @tailwindcss/typography
+npm install --save nuxt-minimal-admin tailwindcss postcss@latest autoprefixer@latest @nuxt/postcss8 @tailwindcss/typography sass sass-loader@10
 ```
 
 Create `tailwind.config.js` file with content:
