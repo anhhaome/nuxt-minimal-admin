@@ -1,7 +1,16 @@
 <template>
   <button 
     @click="$emit('click', $event)"
-    :class="`${type || 'primary'} rounded px-3 py-2 focus:outline-none`"
+    :class="`${type || 'primary'} leading-4 rounded p-3 focus:outline-none`"
+    v-if="!size || size=='md'"
+  >
+    <slot></slot>
+  </button>
+
+  <button 
+    @click="$emit('click', $event)"
+    :class="`${type || 'primary'} leading-4 rounded p-1 focus:outline-none text-sm`"
+    v-else-if="size=='sm'"
   >
     <slot></slot>
   </button>
@@ -9,7 +18,7 @@
 
 <script>
 export default {
-  props: ['type']
+  props: ['type', 'size']
 }
 </script>
 

@@ -41,6 +41,13 @@
   .success { @apply bg-green-600; }
   .warning { @apply bg-amber-600; }
 
+  .outline-primary { @apply hover:bg-black border border-black text-black hover:text-white; }
+  .outline-secondary { @apply hover:bg-slate-600 border border-slate-600 text-slate-600 hover:text-white; }
+  .outline-info { @apply hover:bg-emerald-600 border border-emerald-600 text-emerald-600 hover:text-white; }
+  .outline-danger, .outline-error { @apply hover:bg-red-600 border border-red-600 text-red-600 hover:text-white; }
+  .outline-success { @apply hover:bg-green-600 border border-green-600 text-green-600 hover:text-white; }
+  .outline-warning { @apply hover:bg-amber-600 border border-amber-600 text-amber-600 hover:text-white; }
+
   .border.primary { @apply border-black; }
   .border.secondary { @apply border-slate-800; }
   .border.info { @apply border-emerald-800; }
@@ -67,3 +74,12 @@
     @apply py-2 px-3 text-sm border shadow rounded mt-3 transition-all cursor-pointer;
   }
 }
+/* End Notice */
+
+/* Utils */
+@layer components {
+  button>ion-icon {
+    @apply leading-3 block mx-auto;
+  }
+}
+/* End Utils */
