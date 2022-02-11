@@ -1,16 +1,16 @@
 <template>
   <div class="bg-gray-100 min-h-screen">
     <!-- TOPBAR -->
-    <div class="fixed z-10 top-0 left-0 w-full h-12 bg-white border-b pl-12 overflow-hidden">
+    <div class="fixed z-20 top-0 left-0 w-full h-12 bg-white border-b pl-12 overflow-hidden">
       <slot name="topbar" v-bind:pageTitle="currentPageTitle"></slot>
     </div>
     <!-- END TOPBAR -->
 
     <!-- MENUBAR -->
     <input type="checkbox" class="hidden peer" id="open-menu-bar">
-    <label class="fixed z-10 opacity-0 top-0 left-0 bg-black w-screen h-screen transition-opacity pointer-events-none 
+    <label class="fixed z-20 opacity-0 top-0 left-0 bg-black w-screen h-screen transition-opacity pointer-events-none 
       peer-checked:opacity-60 peer-checked:pointer-events-auto" for="open-menu-bar"></label>
-    <div class="fixed z-10 top-0 left-0 w-12 h-screen bg-white border-r overflow-hidden select-none transition-all 
+    <div class="fixed z-20 top-0 left-0 w-12 h-screen bg-white border-r overflow-hidden select-none transition-all 
       peer-checked:w-64">
 
       <!-- EXPAND BUTTON -->

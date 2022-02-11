@@ -13,7 +13,7 @@
     <m-input label="Email" type="email" class="mb-4"></m-input>
     <m-input label="Password" type="password" class="mb-4"></m-input>
 
-    <m-button @click="submitForm" class="block w-full font-bold">LOGIN</m-button>
+    <m-button size="lg" @click="submitForm" class="block w-full font-bold">LOGIN</m-button>
   </div>
 </template>
 

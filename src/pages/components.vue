@@ -19,6 +19,23 @@
       <h2 class="mb-2">MButton</h2>
 
       <m-codeblock>
+        <m-button class="mb-2" size="lg" type="secondary">Click me</m-button>
+        <m-button class="mb-2" size="lg" type="info">Click me</m-button>
+        <m-button class="mb-2" size="lg" type="danger">Click me</m-button>
+        <m-button class="mb-2" size="lg" type="warning">Click me</m-button>
+        <m-button class="mb-2" size="lg" type="success">Click me</m-button>
+
+        <br>
+
+        <m-button class="mb-2" size="lg" type="outline-primary">Click me</m-button>
+        <m-button class="mb-2" size="lg" type="outline-secondary">Click me</m-button>
+        <m-button class="mb-2" size="lg" type="outline-info">Click me</m-button>
+        <m-button class="mb-2" size="lg" type="outline-danger">Click me</m-button>
+        <m-button class="mb-2" size="lg" type="outline-warning">Click me</m-button>
+        <m-button class="mb-2" size="lg" type="outline-success">Click me</m-button>
+
+        <br>
+
         <m-button>Click me</m-button>
         <m-button class="mb-2" type="secondary">Click me</m-button>
         <m-button class="mb-2" type="info">Click me</m-button>
@@ -54,7 +71,20 @@
 
         <template #help>
           <m-highlight class="text-xs" language="html">
-            <pre class="break-words w-full">&lt;m-button&gt;Click me&lt;/m-button&gt; 
+            <pre>&lt;m-button class=&quot;mb-2&quot; size=&quot;lg&quot; type=&quot;secondary&quot;&gt;Click me&lt;/m-button&gt; 
+&lt;m-button class=&quot;mb-2&quot; size=&quot;lg&quot; type=&quot;info&quot;&gt;Click me&lt;/m-button&gt; 
+&lt;m-button class=&quot;mb-2&quot; size=&quot;lg&quot; type=&quot;danger&quot;&gt;Click me&lt;/m-button&gt; 
+&lt;m-button class=&quot;mb-2&quot; size=&quot;lg&quot; type=&quot;warning&quot;&gt;Click me&lt;/m-button&gt; 
+&lt;m-button class=&quot;mb-2&quot; size=&quot;lg&quot; type=&quot;success&quot;&gt;Click me&lt;/m-button&gt; 
+&lt;br&gt; 
+&lt;m-button class=&quot;mb-2&quot; size=&quot;lg&quot; type=&quot;outline-primary&quot;&gt;Click me&lt;/m-button&gt; 
+&lt;m-button class=&quot;mb-2&quot; size=&quot;lg&quot; type=&quot;outline-secondary&quot;&gt;Click me&lt;/m-button&gt; 
+&lt;m-button class=&quot;mb-2&quot; size=&quot;lg&quot; type=&quot;outline-info&quot;&gt;Click me&lt;/m-button&gt; 
+&lt;m-button class=&quot;mb-2&quot; size=&quot;lg&quot; type=&quot;outline-danger&quot;&gt;Click me&lt;/m-button&gt; 
+&lt;m-button class=&quot;mb-2&quot; size=&quot;lg&quot; type=&quot;outline-warning&quot;&gt;Click me&lt;/m-button&gt; 
+&lt;m-button class=&quot;mb-2&quot; size=&quot;lg&quot; type=&quot;outline-success&quot;&gt;Click me&lt;/m-button&gt; 
+&lt;br&gt;
+&lt;m-button&gt;Click me&lt;/m-button&gt; 
 &lt;m-button class=&quot;mb-2&quot; type=&quot;secondary&quot;&gt;Click me&lt;/m-button&gt; 
 &lt;m-button class=&quot;mb-2&quot; type=&quot;info&quot;&gt;Click me&lt;/m-button&gt; 
 &lt;m-button class=&quot;mb-2&quot; type=&quot;danger&quot;&gt;Click me&lt;/m-button&gt; 
@@ -304,7 +334,50 @@
 
     <!-- Dropdown -->
     <m-panel title="Dropdown">
+      <h3 class="mt-4">Simple</h3>
 
+      Click to open
+      <m-dropdown>
+        <div class="p-2">
+          This is a dropdown.
+        </div>
+      </m-dropdown>
+
+      <h3 class="mt-4">Sized</h3>
+      
+      <m-dropdown size="sm">
+        <div class="p-2">
+          This is a small dropdown.
+        </div>
+      </m-dropdown>
+
+      <m-dropdown size="md">
+        <div class="p-2">
+          This is a medium dropdown.
+        </div>
+      </m-dropdown>
+
+      <m-dropdown size="lg">
+        <div class="p-2">
+          This is a large dropdown.
+        </div>
+      </m-dropdown>
+
+      <h3 class="mt-4">Position</h3>
+
+      <div class="flex justify-between">
+        <m-dropdown position="left">
+          <div class="p-2">
+            This is a left dropdown.
+          </div>
+        </m-dropdown>
+
+        <m-dropdown position="right">
+          <div class="p-2">
+            This is a right dropdown.
+          </div>
+        </m-dropdown>
+      </div>
     </m-panel>
     <!-- End Dropdown -->
   </div>
