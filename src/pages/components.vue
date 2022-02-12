@@ -1,13 +1,69 @@
 <template>
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-4 p-4">
-    <!-- Form -->
-    <m-panel>
-      <h2 class="mb-2">MInput</h2>
+    <!-- Color Schema -->
+    <m-panel title="Color Schema">
 
       <m-codeblock
         class="mb-4"
       >
-        <m-input label="Enter something..."/>
+        <div class="border py-2 px-3 rounded my-3 primary">Primary</div>
+        <div class="border py-2 px-3 rounded my-3 secondary">Secondary</div>
+        <div class="border py-2 px-3 rounded my-3 info">Info</div>
+        <div class="border py-2 px-3 rounded my-3 danger">Danger/Error</div>
+        <div class="border py-2 px-3 rounded my-3 warning">Warning</div>
+        <div class="border py-2 px-3 rounded my-3 success">Success</div>
+
+        <template #help>
+          <m-highlight class="text-xs" language="html">
+            <pre>&lt;div class=&quot;border py-2 px-3 rounded my-3 primary&quot;&gt;Primary&lt;/div&gt; 
+&lt;div class=&quot;border py-2 px-3 rounded my-3 secondary&quot;&gt;Secondary&lt;/div&gt; 
+&lt;div class=&quot;border py-2 px-3 rounded my-3 info&quot;&gt;Info&lt;/div&gt; 
+&lt;div class=&quot;border py-2 px-3 rounded my-3 danger&quot;&gt;Danger/Error&lt;/div&gt; 
+&lt;div class=&quot;border py-2 px-3 rounded my-3 warning&quot;&gt;Warning&lt;/div&gt; 
+&lt;div class=&quot;border py-2 px-3 rounded my-3 success&quot;&gt;Success&lt;/div&gt;</pre>
+          </m-highlight>
+        </template>
+      </m-codeblock>
+    </m-panel>
+    <!-- End Color Schema -->
+
+    <!-- Alert Schema -->
+    <m-panel title="Alert Schema">
+      <m-codeblock
+        class="mb-4"
+      >
+        <div class="border py-2 px-3 rounded my-3 alert primary">Primary <code>.alert.primary</code></div>
+        <div class="border py-2 px-3 rounded my-3 alert secondary">Secondary <code>.alert.secondary</code></div>
+        <div class="border py-2 px-3 rounded my-3 alert info">Info <code>.alert.info</code></div>
+        <div class="border py-2 px-3 rounded my-3 alert danger">Danger/Error <code>.alert.danger/.alert.error</code></div>
+        <div class="border py-2 px-3 rounded my-3 alert warning">Warning <code>.alert.warning</code></div>
+        <div class="border py-2 px-3 rounded my-3 alert success">Success <code>.alert.success</code></div>
+
+        <template #help>
+          <m-highlight class="text-xs" language="html">
+            <pre>&lt;div class=&quot;border py-2 px-3 rounded my-3 alert primary&quot;&gt;Primary &lt;code&gt;.alert.primary&lt;/code&gt;&lt;/div&gt; 
+&lt;div class=&quot;border py-2 px-3 rounded my-3 alert secondary&quot;&gt;Secondary &lt;code&gt;.alert.secondary&lt;/code&gt;&lt;/div&gt; 
+&lt;div class=&quot;border py-2 px-3 rounded my-3 alert info&quot;&gt;Info &lt;code&gt;.alert.info&lt;/code&gt;&lt;/div&gt; 
+&lt;div class=&quot;border py-2 px-3 rounded my-3 alert danger&quot;&gt;Danger/Error &lt;code&gt;.alert.danger/.alert.error&lt;/code&gt;&lt;/div&gt; 
+&lt;div class=&quot;border py-2 px-3 rounded my-3 alert warning&quot;&gt;Warning &lt;code&gt;.alert.warning&lt;/code&gt;&lt;/div&gt; 
+&lt;div class=&quot;border py-2 px-3 rounded my-3 alert success&quot;&gt;Success &lt;code&gt;.alert.success&lt;/code&gt;&lt;/div&gt;</pre>
+          </m-highlight>
+        </template>
+      </m-codeblock>
+    </m-panel>
+    <!-- End Alert Schema -->
+
+    <!-- Form -->
+    <m-panel title="MInput">
+      <h3 class="mt-4">Simple</h3>
+
+      <m-codeblock
+        class="mb-4"
+      >
+        <m-input label="Your text"/>
+        <m-input label="Your number" type="number"/>
+        <m-input label="Your password" type="password"/>
+        <m-input label="Your currency" type="currency"/>
 
         <template #help>
           <m-highlight class="text-xs" language="html">
@@ -16,8 +72,14 @@
         </template>
       </m-codeblock>
 
-      <h2 class="mb-2">MButton</h2>
+      <h3 class="mt-4">Sized</h3>
 
+      <m-input size="sm" value="This is a small"/>
+      <m-input size="md" value="This is a medium"/>
+      <m-input size="lg" value="This is a large"/>
+    </m-panel>
+
+    <m-panel title="MButton">
       <m-codeblock>
         <m-button class="mb-2" size="lg" type="secondary">Click me</m-button>
         <m-button class="mb-2" size="lg" type="info">Click me</m-button>
@@ -117,84 +179,9 @@
     </m-panel>
     <!-- End Form -->
 
-    <!-- Login Form -->
-    <m-panel title="MLoginForm">
-      <m-codeblock
-        class="mb-4"
-      >
-        <m-login-form
-          :error="loginError" 
-          @submit="loginError = 'Wrong email or password'"
-        ></m-login-form>
-
-        <template #help>
-          <m-highlight class="text-xs" language="html">
-            <pre>&lt;m-login-form
-  :error=&quot;loginError&quot;
-  @submit=&quot;loginError = 'Wrong email or password'&quot; &gt;
-&lt;/m-login-form&gt;</pre>
-          </m-highlight>
-        </template>
-      </m-codeblock>
-    </m-panel>
-    <!-- End Login Form -->
-
-    <!-- Color Schema -->
-    <m-panel title="Color Schema">
-
-      <m-codeblock
-        class="mb-4"
-      >
-        <div class="border py-2 px-3 rounded my-3 primary">Primary</div>
-        <div class="border py-2 px-3 rounded my-3 secondary">Secondary</div>
-        <div class="border py-2 px-3 rounded my-3 info">Info</div>
-        <div class="border py-2 px-3 rounded my-3 danger">Danger/Error</div>
-        <div class="border py-2 px-3 rounded my-3 warning">Warning</div>
-        <div class="border py-2 px-3 rounded my-3 success">Success</div>
-
-        <template #help>
-          <m-highlight class="text-xs" language="html">
-            <pre>&lt;div class=&quot;border py-2 px-3 rounded my-3 primary&quot;&gt;Primary&lt;/div&gt; 
-&lt;div class=&quot;border py-2 px-3 rounded my-3 secondary&quot;&gt;Secondary&lt;/div&gt; 
-&lt;div class=&quot;border py-2 px-3 rounded my-3 info&quot;&gt;Info&lt;/div&gt; 
-&lt;div class=&quot;border py-2 px-3 rounded my-3 danger&quot;&gt;Danger/Error&lt;/div&gt; 
-&lt;div class=&quot;border py-2 px-3 rounded my-3 warning&quot;&gt;Warning&lt;/div&gt; 
-&lt;div class=&quot;border py-2 px-3 rounded my-3 success&quot;&gt;Success&lt;/div&gt;</pre>
-          </m-highlight>
-        </template>
-      </m-codeblock>
-    </m-panel>
-    <!-- End Color Schema -->
-
-    <!-- Alert Schema -->
-    <m-panel title="Alert Schema">
-      <m-codeblock
-        class="mb-4"
-      >
-        <div class="border py-2 px-3 rounded my-3 alert primary">Primary <code>.alert.primary</code></div>
-        <div class="border py-2 px-3 rounded my-3 alert secondary">Secondary <code>.alert.secondary</code></div>
-        <div class="border py-2 px-3 rounded my-3 alert info">Info <code>.alert.info</code></div>
-        <div class="border py-2 px-3 rounded my-3 alert danger">Danger/Error <code>.alert.danger/.alert.error</code></div>
-        <div class="border py-2 px-3 rounded my-3 alert warning">Warning <code>.alert.warning</code></div>
-        <div class="border py-2 px-3 rounded my-3 alert success">Success <code>.alert.success</code></div>
-
-        <template #help>
-          <m-highlight class="text-xs" language="html">
-            <pre>&lt;div class=&quot;border py-2 px-3 rounded my-3 alert primary&quot;&gt;Primary &lt;code&gt;.alert.primary&lt;/code&gt;&lt;/div&gt; 
-&lt;div class=&quot;border py-2 px-3 rounded my-3 alert secondary&quot;&gt;Secondary &lt;code&gt;.alert.secondary&lt;/code&gt;&lt;/div&gt; 
-&lt;div class=&quot;border py-2 px-3 rounded my-3 alert info&quot;&gt;Info &lt;code&gt;.alert.info&lt;/code&gt;&lt;/div&gt; 
-&lt;div class=&quot;border py-2 px-3 rounded my-3 alert danger&quot;&gt;Danger/Error &lt;code&gt;.alert.danger/.alert.error&lt;/code&gt;&lt;/div&gt; 
-&lt;div class=&quot;border py-2 px-3 rounded my-3 alert warning&quot;&gt;Warning &lt;code&gt;.alert.warning&lt;/code&gt;&lt;/div&gt; 
-&lt;div class=&quot;border py-2 px-3 rounded my-3 alert success&quot;&gt;Success &lt;code&gt;.alert.success&lt;/code&gt;&lt;/div&gt;</pre>
-          </m-highlight>
-        </template>
-      </m-codeblock>
-    </m-panel>
-    <!-- End Alert Schema -->
-
     <!-- Checkbox -->
     <m-panel title="Checkboxs">
-      <h3>Simple</h3>
+      <h3 class="mt-4">Simple</h3>
 
       <m-codeblock
         class="mb-4"
@@ -380,6 +367,28 @@
       </div>
     </m-panel>
     <!-- End Dropdown -->
+
+    <!-- Login Form -->
+    <m-panel title="MLoginForm">
+      <m-codeblock
+        class="mb-4"
+      >
+        <m-login-form
+          :error="loginError" 
+          @submit="loginError = 'Wrong email or password'"
+        ></m-login-form>
+
+        <template #help>
+          <m-highlight class="text-xs" language="html">
+            <pre>&lt;m-login-form
+  :error=&quot;loginError&quot;
+  @submit=&quot;loginError = 'Wrong email or password'&quot; &gt;
+&lt;/m-login-form&gt;</pre>
+          </m-highlight>
+        </template>
+      </m-codeblock>
+    </m-panel>
+    <!-- End Login Form -->
   </div>
 </template>
 
